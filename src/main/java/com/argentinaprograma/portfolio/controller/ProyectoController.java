@@ -14,25 +14,25 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@RestController("/api/")
 public class ProyectoController {
     
     @Autowired
     private IProyectoService proyServ;
     
-    @GetMapping("/proyectos/ver")
+    @GetMapping("/proyecto/ver")
     @ResponseBody 
     public List<Proyecto> verProyecto() {
         return proyServ.verProyecto();
     }
     
-    @PostMapping("/proyectos/nueva")
+    @PostMapping("/proyecto/nueva")
     public void agregarProyecto(Proyecto proj) {
         proyServ.agregarProyecto(proj);
     }
     
     
-    @DeleteMapping("/proyectos/borrar/{id}")
+    @DeleteMapping("/proyecto/borrar/{id}")
     public void borrarProyecto(@PathVariable Long  id) {
         proyServ.borrarProyecto(id);
     }
